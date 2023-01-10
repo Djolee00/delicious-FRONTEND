@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect,useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { Card, CardCuisine, Grid } from '../styled_components/MyList.styled';
+import { Link, useParams } from 'react-router-dom';
+import {  CardCuisine, Grid } from '../styled_components/MyList.styled';
 
 function Searched() {
 
@@ -23,8 +23,10 @@ function Searched() {
             {searchedRecipes.map((item) => {
                 return(
                     <CardCuisine key={item.id}>
+                        <Link to={'/recipe/'+item.id}>
                         <img src={item.image} alt=""/>
                         <h4>{item.title}</h4>
+                        </Link>
                     </CardCuisine>
                 )
             })}
